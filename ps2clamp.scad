@@ -11,7 +11,16 @@ screwradius=1.5;
 difference(){
   // create the cylinder to fit the Oras holder
   cube(size = [length, width, thickness], center = false);
-  // carve out cone socket to fit the shower piece, position it closer to the front to strengthen the back
-  translate([15,0,0])
-    #cylinder(h = thickness+1, r1=PS2radius);
+  
+  // Carve out PS2 connector sized holes centered
+  translate([16,10,-1])
+    #cylinder(h = thickness+2, r1=PS2radius, r2=PS2radius, $fn=1000);
+  translate([16+18,10,-1])
+    #cylinder(h = thickness+2, r1=PS2radius, r2=PS2radius, $fn=1000);
+  
+  // Carve out screw holes
+  translate([4.5,10,-1])
+    #cylinder(h = thickness+2, r1=screwradius, r2=screwradius, $fn=1000);
+  translate([length-4.5,10,-1])
+    #cylinder(h = thickness+2, r1=screwradius, r2=screwradius, $fn=1000);
 }
