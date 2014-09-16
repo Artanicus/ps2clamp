@@ -1,21 +1,17 @@
-// The top piece is based on the Oras oval-shaped socket for shower handles. It's meant to sit pretty tight.
+// Clamp for attaching 2xPS2 connectors to a serial-port-like screw setup
 
-// total length of the piece
-length = 60;
+// Measurements
+length = 50;
+width = 20;
+thickness = 5;
 
-// Oras config
-orasR = 13.5;
-
-// no-name brand shower head config
-socketRbottom = 9;
-socketRtop = 11;
+PS2radius=6;
+screwradius=1.5;
 
 difference(){
   // create the cylinder to fit the Oras holder
-  cylinder(length, r=orasR);
+  cube(size = [length, width, thickness], center = false);
   // carve out cone socket to fit the shower piece, position it closer to the front to strengthen the back
-  #cylinder(length+10, r1=socketRbottom, r2=socketRtop);
-  
-  // slice open the front for easy insertion
-  translate([5,-7.5,0]) cube([15, 15, 70], center = false);
+  translate([15,0,0])
+    #cylinder(h = thickness+1, r1=PS2radius);
 }
