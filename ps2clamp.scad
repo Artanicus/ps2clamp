@@ -9,7 +9,6 @@ PS2radius=6;
 screwradius=1.5;
 
 difference(){
-  // create the cylinder to fit the Oras holder
   cube(size = [length, width, thickness], center = false);
   
   // Carve out PS2 connector sized holes centered
